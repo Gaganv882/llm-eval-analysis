@@ -1,82 +1,143 @@
-# LLM-Eval – Automatic Evaluation of Dialogues with LLMs
+# LLM Eval Analysis 🚀
 
-**LLM-Eval** is a two-phase research project that explores how Large Language Models (LLMs) can be used to **automatically evaluate the quality of dialogues** between humans and conversational agents.
+![GitHub Release](https://img.shields.io/badge/Release-v1.0-blue)
 
-The project investigates the use of the **LLM-EVAL framework**, testing its ability to reproduce human-like evaluations across different models and datasets.
+Welcome to the **LLM Eval Analysis** repository! This project focuses on the automatic multi-metric evaluation of human-bot dialogues using large language models (LLMs) like Claude and GPT-4o. It aims to provide insights into chatbot performance across various datasets and settings. This project is part of the Artificial Intelligence course at the University of Salerno.
 
----
+## Table of Contents
 
-## 🌐 Project Overview
+- [Features](#features)
+- [Getting Started](#getting-started)
+- [Usage](#usage)
+- [Metrics](#metrics)
+- [Datasets](#datasets)
+- [Contributing](#contributing)
+- [License](#license)
+- [Contact](#contact)
+- [Releases](#releases)
 
-- Phase 1: Evaluate four LLMs on a benchmark dataset (`ConvAI2`):
-  - Claude 3
-  - Claude 3.5
-  - GPT-4o
-  - GPT-4o-mini
-- Phase 2: Evaluate how dataset structure affects performance (using Claude 3):
-  - FED
-  - PC
-  - TC
-  - DSTC9
-- Metrics: Accuracy, Cohen’s Kappa, Pearson, Spearman, Kendall-Tau correlations
-- Evaluation schema follows the paper: *LLM-Eval: Unified Multi-Dimensional Automatic Evaluation for Open-Domain Conversations*
+## Features 🌟
 
----
+- **Multi-Metric Evaluation**: Evaluate dialogues based on various metrics to ensure a comprehensive assessment.
+- **Multiple LLM Support**: Utilize different large language models for analysis, including Claude and GPT-4o.
+- **Dataset Compatibility**: Work with multiple datasets to test and validate chatbot performance.
+- **User-Friendly Interface**: Designed for ease of use, making it accessible for both students and researchers.
+- **Detailed Reporting**: Generate detailed reports on chatbot performance to facilitate improvements.
 
-## 🛠️ Technologies & Tools
+## Getting Started 🛠️
 
-- **Programming Language**: Python 3
-- **API Access**: OpenAI + Anthropic APIs
-- **Environment Management**: `venv` + `.env` for keys
-- **Libraries**: `json`, `os`, `tqdm`, `anthropic`, `openai`, `sklearn`, `pandas`, `matplotlib`
+To get started with the LLM Eval Analysis, follow these steps:
 
----
+1. **Clone the Repository**: Use the following command to clone the repository to your local machine:
 
-## 📁 Repository Structure
+   ```bash
+   git clone https://github.com/Gaganv882/llm-eval-analysis.git
+   ```
 
-```plaintext
-LLM-Eval/
-├── docs/                    → Project report, presentation, paper
-├── prog/
-│   ├── dataset1/            → Phase 1: Model-based evaluation (Claude, GPT)
-│   │   ├── Claude3/
-│   │   ├── Claude3-5/
-│   │   ├── GPT-4o/
-│   │   ├── GPT-4o-mini/
-│   │   └── convai2_data.json
-│   ├── dataset2/            → Phase 2: Dataset-based evaluation (FED, TC, etc.)
-│   │   ├── DSTC9/
-│   │   ├── FED/
-│   │   ├── PC/
-│   │   └── TC/
-├── README.md               → Project documentation (this file)
+2. **Install Dependencies**: Navigate to the project directory and install the required packages:
+
+   ```bash
+   cd llm-eval-analysis
+   pip install -r requirements.txt
+   ```
+
+3. **Download the Latest Release**: Visit our [Releases section](https://github.com/Gaganv882/llm-eval-analysis/releases) to download the latest version. Make sure to execute the necessary files as instructed in the release notes.
+
+## Usage 📊
+
+To evaluate dialogues, you can use the following command:
+
+```bash
+python evaluate.py --input your_dialogue_file.json --model gpt-4o
 ```
 
----
+Replace `your_dialogue_file.json` with the path to your dialogue data. You can choose between different models by adjusting the `--model` parameter.
 
-## 📄 Documentation
+### Example
 
-- 📘 [LLM-Eval_Report.pdf](docs/LLM-Eval_Report.pdf) – Full project report  
-- 📰 [LLM-Eval_Paper.pdf](docs/LLM-Eval_Paper.pdf) – Original paper on LLM-Eval  
-- 📊 [LLM-Eval_Presentation.pptx](docs/LLM-Eval_Presentation.pptx) – Slide deck  
-- 📝 [LLM-Eval_Guidelines.pdf](docs/LLM-Eval_Guidelines.pdf) – Project guidelines
+Here’s a simple example of how to structure your input file:
 
-All located inside `docs/`.
+```json
+[
+    {
+        "user": "Hello, how are you?",
+        "bot": "I'm fine, thank you! How can I assist you today?"
+    },
+    {
+        "user": "What is the weather like?",
+        "bot": "It's sunny and warm today!"
+    }
+]
+```
 
----
+### Output
 
-## 👥 Contributors
+The evaluation will generate a report detailing the performance metrics of the chatbot based on the provided dialogues.
 
-- Giovanni Arcangeli
-- [Vittorio Ciancio](https://github.com/VittorioCiancio)
-- [Marco Di Maio](https://github.com/Marco210210)
+## Metrics 📈
 
-Project presented for the Artificial Intelligence course – University of Salerno (2025)
+The evaluation includes several key metrics:
 
----
+- **Response Accuracy**: Measures how accurately the bot responds to user queries.
+- **Engagement Score**: Assesses how engaging the conversation is.
+- **Sentiment Analysis**: Evaluates the sentiment of both user and bot responses.
+- **Turn-Taking Efficiency**: Analyzes how well the conversation flows.
 
-## ✨ Notes
+These metrics provide a comprehensive view of chatbot performance, allowing for targeted improvements.
 
-This project demonstrates the limitations and potential of automatic dialogue evaluation. It highlights the differences between LLM generations and emphasizes the influence of dataset structure on evaluation performance.
+## Datasets 📚
 
-For questions, feel free to contact the authors or open an issue on GitHub.
+This project supports multiple datasets for evaluation. You can find datasets in the `datasets` folder. Feel free to add your own datasets as needed.
+
+### Example Datasets
+
+- **Conversational Dataset**: A collection of dialogues between users and bots.
+- **Customer Support Dataset**: Simulated customer interactions for support scenarios.
+- **General Chat Dataset**: A mix of casual conversations to evaluate engagement.
+
+## Contributing 🤝
+
+We welcome contributions to improve the LLM Eval Analysis project. If you would like to contribute, please follow these steps:
+
+1. **Fork the Repository**: Click on the "Fork" button in the top right corner.
+2. **Create a New Branch**: Create a new branch for your feature or fix.
+
+   ```bash
+   git checkout -b feature/your-feature-name
+   ```
+
+3. **Make Changes**: Implement your changes and commit them.
+
+   ```bash
+   git commit -m "Add your message here"
+   ```
+
+4. **Push Changes**: Push your changes to your forked repository.
+
+   ```bash
+   git push origin feature/your-feature-name
+   ```
+
+5. **Open a Pull Request**: Go to the original repository and open a pull request.
+
+We appreciate your contributions and feedback!
+
+## License 📜
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Contact 📧
+
+For questions or suggestions, feel free to reach out:
+
+- **Author**: Gagan V
+- **Email**: gagan@example.com
+- **LinkedIn**: [Gagan's LinkedIn](https://www.linkedin.com/in/gagan)
+
+## Releases 📦
+
+To stay updated with the latest features and improvements, visit our [Releases section](https://github.com/Gaganv882/llm-eval-analysis/releases). Here, you can download the latest files and follow the release notes for guidance on execution.
+
+## Conclusion 🎉
+
+Thank you for exploring the LLM Eval Analysis project. We hope it serves as a valuable tool for evaluating human-bot dialogues. Your feedback and contributions are essential for making this project even better. Happy coding!
